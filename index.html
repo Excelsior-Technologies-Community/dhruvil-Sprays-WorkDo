@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <title>Sprays WorkDo</title>
   </head>
 
@@ -29,7 +34,7 @@
 
             <div
               id="lang"
-              class="hidden absolute bg-white shadow-md rounded-lg mt-2 w-31"
+              class="hidden absolute bg-white shadow-md rounded-lg mt-2 w-40 z-50"
             >
               <div
                 class="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer text-black text-black"
@@ -72,7 +77,7 @@
 
             <div
               id="cur"
-              class="hidden absolute bg-white shadow-md rounded-lg mt-2 w-26"
+              class="hidden absolute bg-white shadow-md rounded-lg mt-2 w-28 z-50"
             >
               <div
                 class="px-4 py-2 flex gap-2 items-center hover:bg-gray-100 cursor-pointer text-black"
@@ -149,7 +154,8 @@
           </div>
 
           <div
-            class="flex items-center gap-3 border border-gray-600 rounded-full px-5 py-2 relative"
+            id="cartTrigger"
+            class="flex items-center gap-3 border border-gray-600 rounded-full px-5 py-2 relative cursor-pointer"
             onclick="
               updateTotalCartValue();
               document.getElementById('cart').classList.toggle('hidden');
@@ -159,17 +165,15 @@
             <span id="cartValue" class="text-md">$0.00</span>
 
             <div
-              class="absolute flex flex-col justify-start items-center hidden w-86 h-[400px] bg-white text-black top-15 right-0 mt-2 rounded-lg p-3 rounded-full shadow-xl overflow-y-auto"
+              class="absolute flex flex-col hidden w-80 min-h-[200px] max-h-[400px] bg-white text-black top-full right-0 mt-2 rounded-lg p-4 shadow-xl overflow-y-auto z-[60]"
               id="cart"
             >
               <div class="flex flex-col w-full" id="cartItems">
-                <h2 class="text-xl mb-2">My Cart</h2>
+                <h2 class="text-xl mb-2 font-semibold">My Cart</h2>
 
-                <div id="cartList" class="w-full"></div>
+                <div id="cartList" class="w-full flex-1"></div>
 
-                <img src="" alt="" id="cartimg" />
-
-                <p class="cartTotalValue mt-2">Total:</p>
+                <p class="cartTotalValue mt-2 font-semibold">Total: $0.00</p>
 
                 <button
                   class="bg-black text-white w-full h-10 rounded-full text-xl font-semibold mt-2"
@@ -184,7 +188,7 @@
     </header>
 
     <section
-      class="bg-[url('/assets/images/imgi_133_home-bg.png')] bg-cover bg-center w-full h-[calc(100vh-120px)] mt-[120px] flex items-center"
+      class="bg-[url('./assets/images/imgi_133_home-bg.png')] bg-cover bg-center w-full h-[calc(100vh-120px)] mt-[120px] flex items-center"
     >
       <div
         class="max-w-7xl mx-auto w-full px-10 flex items-center justify-between"
@@ -267,8 +271,11 @@
 
         <!-- {Product Cart Div} -->
         <div class="relative flex items-center gap-6 ml-16">
-          <div class="bg-white w-[320px] h-[500px] p-6 rounded-2xl border-1">
-            <span class="absolute bg-gray-100 px-3 py-1 rounded-full text-sm"
+          <div
+            class="relative bg-white w-[320px] h-[500px] p-6 rounded-2xl border border-gray-200 heroProduct"
+          >
+            <span
+              class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
               >20%</span
             >
 
@@ -292,14 +299,13 @@
             <div class="mb-3">★★★★☆</div>
 
             <div class="flex items-center gap-3 mb-4">
-              <span class="text-xl font-bold">$20.00</span>
+              <span class="text-xl font-bold total">$20.00</span>
               <span class="line-through text-gray-400">$25.00</span>
             </div>
 
             <button
-              class="bg-black text-white w-full py-3 rounded-full cursor-pointer"
+              class="bg-black text-white w-full py-3 rounded-full cursor-pointer addCart"
               id="addCart"
-              onclick="addtoCart()"
             >
               Add to Cart
             </button>
@@ -375,208 +381,653 @@
           maximizing yields.
         </p>
 
-        <a class="mt-4 font-semibold cursor-pointer">Show More</a>
+        <a href="#" class="mt-4 font-semibold cursor-pointer hover:underline"
+          >Show More</a
+        >
       </div>
     </section>
 
     <h2 class="tracking-wider text-4xl font-bold ml-26">
       Transforming Surfaces with Spray Mastery
     </h2>
+    <section class="w-full h-[450px] mt-12 relative px-10 overflow-x-hidden">
+      <div
+        class="swiper-button-prev !text-black !w-8 !h-8 after:!text-lg"
+      ></div>
+      <div
+        class="swiper-button-next !text-black !w-8 !h-8 after:!text-lg"
+      ></div>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide !w-auto">
+            <div class="relative cartDiv">
+              <div class="bg-white w-[280px] h-[420px] p-6 rounded-2xl border">
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_39_1_9fb478e8-5bf8-47b2-8632-27e5c0519a52_600x600.png"
+                    class="h-36 object-contain productImage"
+                    data-index="0"
+                  />
+                </div>
+                <p class="text-gray-500">Rihanna</p>
+                <h2 class="text-lg font-semibold mb-2">
+                  Greenley Eau De Parfum
+                </h2>
+                <select class="border rounded-lg px-2 py-1 w-full mb-3">
+                  <option>50ml</option>
+                  <option>60ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide !w-auto">
+            <div class="relative cartDiv">
+              <div class="bg-white w-[280px] h-[420px] p-6 rounded-2xl border">
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_40_1_f89b722a-1739-4b59-9ff9-fbc612c7ab3b_600x600.png"
+                    class="h-36 object-contain productImage"
+                    data-index="1"
+                  />
+                </div>
+                <p class="text-gray-500">Rihanna</p>
+                <h2 class="text-lg font-semibold mb-2">
+                  Carlise Eau De Parfum
+                </h2>
+                <select class="border rounded-lg px-2 py-1 w-full mb-3">
+                  <option>50ml</option>
+                  <option>60ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide !w-auto">
+            <div class="relative cartDiv">
+              <div class="bg-white w-[280px] h-[420px] p-6 rounded-2xl border">
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_41_1_6797f7be-438d-42cd-b925-e1765472a361_600x600.png"
+                    class="h-36 object-contain productImage"
+                    data-index="2"
+                  />
+                </div>
+                <p class="text-gray-500">Rihanna</p>
+                <h2 class="text-lg font-semibold mb-2">
+                  Althair Eau De Parfum
+                </h2>
+                <select class="border rounded-lg px-2 py-1 w-full mb-3">
+                  <option>50ml</option>
+                  <option>60ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide !w-auto">
+            <div class="relative cartDiv">
+              <div class="bg-white w-[280px] h-[420px] p-6 rounded-2xl border">
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_42_1_a7608a96-770b-4702-bfbb-a8086da3cf12_600x600.png"
+                    class="h-36 object-contain productImage"
+                    data-index="3"
+                  />
+                </div>
+                <p class="text-gray-500">Rihanna</p>
+                <h2 class="text-lg font-semibold mb-2">Peguas Eau De Parfum</h2>
+                <select class="border rounded-lg px-2 py-1 w-full mb-3">
+                  <option>50ml</option>
+                  <option>60ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide !w-auto">
+            <div class="relative cartDiv">
+              <div class="bg-white w-[280px] h-[420px] p-6 rounded-2xl border">
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_39_1_9fb478e8-5bf8-47b2-8632-27e5c0519a52_600x600.png"
+                    class="h-36 object-contain productImage"
+                    data-index="4"
+                  />
+                </div>
+                <p class="text-gray-500">Rihanna</p>
+                <h2 class="text-lg font-semibold mb-2">Herod Eau De Parfum</h2>
+                <select class="border rounded-lg px-2 py-1 w-full mb-3">
+                  <option>50ml</option>
+                  <option>60ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section
-      class="w-full h-[480px] bg-white flex justify-center items-center overflow-x-hidden mt-12"
+      class="w-full h-[450px] flex flex-col items-center justify-center bg-[url('./assets/images/imgi_136_bg2.png')] bg-cover bg-center"
     >
-      <div class="relative flex items-center gap-6 ml-16 cartDiv">
-        <div class="bg-white w-[280px] h-[450px] p-6 rounded-2xl border-1">
-          <span class="absolute bg-gray-100 px-3 py-1 rounded-full text-sm"
-            >20%</span
-          >
+      <p class="text-white text-xl pt-14">Spray</p>
+      <h2 class="text-white tracking-wider text-6xl font-semibold">
+        The Science and art of
+        <span class="block text-center mt-3">Sprays</span>
+      </h2>
+      <p class="text-white text-center mt-5">
+        Sprays, in their essence, are a versatile form of dispersing liquid,
+        gas, or fine particles in the<span class="block">
+          atmosphere or onto a surface.</span
+        >
+      </p>
+      <a
+        href="https://youtu.be/WhKJl9W_1Fw?list=TLGGljE4mUNDFXoxMTAyMjAyNg"
+        class="flex items-center justify-center mt-2 gap-1"
+      >
+        <svg
+          width="60"
+          height="60"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+          />
+          <polygon
+            points="45,38 45,62 62,50"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <p class="text-white">Play Video</p>
+      </a>
+    </section>
 
-          <div class="flex justify-center my-6">
-            <img
-              id="productImages"
-              data-index="0"
-              src="./assets/images/imgi_39_1_9fb478e8-5bf8-47b2-8632-27e5c0519a52_600x600.png"
-              class="h-36 object-contain transition duration-300 productImage"
-            />
-          </div>
+    <div
+      class="flex justify-between items-center max-w-6xl h-[100px] mx-auto mt-10"
+    >
+      <div>
+        <h2 class="text-4xl font-bold tracking-wider">Exploring the</h2>
+        <p class="text-4xl tracking-widest mt-2">Versality of Sprays</p>
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <a
+          href="#"
+          class="bg-white flex items-center justify-center text-black rounded-full w-30 h-10 border-1 gap-1 font-semibold"
+        >
+          Fragrance
+          <img src="assets/images/handbag.png" class="w-4 h-4" />
+        </a>
+        <a
+          href="#"
+          id="unisexBtn"
+          class="bg-black text-white flex items-center justify-center rounded-full w-42 h-10 border-1 gap-1 text-md font-semibold hover:bg-white hover:text-black"
+        >
+          Unisex Perfume
+          <img
+            src="assets/images/download (34).svg"
+            class="w-4 h-4 handbagIcon"
+          />
+        </a>
+        <a
+          href="#"
+          id="solidBtn"
+          class="bg-black text-white flex items-center justify-center rounded-full w-40 h-10 border-1 gap-1 text-md font-semibold hover:bg-white hover:text-black"
+        >
+          Solid Perfume
+          <img
+            src="assets/images/download (34).svg"
+            class="w-4 h-4 handbagIcon"
+          />
+        </a>
+      </div>
+    </div>
 
-          <p class="text-gray-500">Rihanna</p>
-          <h2 class="text-lg font-semibold mb-2">Greenley Eau De Parfum</h2>
-
-          <select class="border rounded-lg px-2 py-1 w-full mb-3">
-            <option>50ml</option>
-            <option>60ml</option>
-          </select>
-
-          <div class="mb-2">★★★★☆</div>
-
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-xl font-bold total">$20.00</span>
-            <span class="line-through text-gray-400">$25.00</span>
-          </div>
-
+    <section
+      class="flex items-center justify-center max-w-7xl mx-auto mt-3 h-[450px] gap-6"
+    >
+      <div
+        class="relative bg-white w-[280px] h-[420px] p-6 rounded-2xl border mt-5 ladyPerfume"
+      >
+        <span
+          class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+          >20%</span
+        >
+        <div class="flex justify-center my-6">
+          <img
+            src="./assets/images/imgi_48_1_9a6876b2-beae-4ed4-af95-1331900080eb_600x600.png"
+            class="h-36 object-contain versalityProductImage"
+            data-index="0"
+          />
+        </div>
+        <p class="text-gray-500">Swiss</p>
+        <h2 class="text-md font-semibold mb-2">Valaya Eau De Perfume</h2>
+        <select
+          class="border rounded-lg px-2 py-1 w-full mb-3"
+          aria-label="Select size"
+        >
+          <option>50ml</option>
+          <option>60ml</option>
+        </select>
+        <div class="mb-2">★★★★☆</div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-xl font-bold total">$20.00</span>
           <button
-            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full cursor-pointer hover:bg-white hover:text-black hover:border-1"
+            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
           >
             Add to Cart
-            <img src="assets/images/download (34).svg" alt="" />
           </button>
         </div>
       </div>
-      <div class="relative flex items-center gap-6 ml-16 cartDiv">
-        <div class="bg-white w-[280px] h-[450px] p-6 rounded-2xl border-1">
-          <span class="absolute bg-gray-100 px-3 py-1 rounded-full text-sm"
-            >20%</span
-          >
 
-          <div class="flex justify-center my-6">
-            <img
-              id="productImages"
-              data-index="1"
-              src="./assets/images/imgi_40_1_f89b722a-1739-4b59-9ff9-fbc612c7ab3b_600x600.png"
-              class="h-36 object-contain transition duration-300 productImage"
-            />
-          </div>
-
-          <p class="text-gray-500">Rihanna</p>
-          <h2 class="text-lg font-semibold mb-2">Carlise Eau De Parfum</h2>
-
-          <select class="border rounded-lg px-2 py-1 w-full mb-3">
-            <option>50ml</option>
-            <option>60ml</option>
-          </select>
-
-          <div class="mb-2">★★★★☆</div>
-
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-xl font-bold total">$20.00</span>
-            <span class="line-through text-gray-400">$25.00</span>
-          </div>
-
+      <div
+        class="relative bg-white w-[280px] h-[420px] p-6 rounded-2xl border mt-5 ladyPerfume"
+      >
+        <span
+          class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+          >20%</span
+        >
+        <div class="flex justify-center my-6">
+          <img
+            src="./assets/images/imgi_43_1_540a9dd3-b974-41ff-8346-0dc24fac402d_600x600.png"
+            class="h-36 object-contain versalityProductImage"
+            data-index="1"
+          />
+        </div>
+        <p class="text-gray-500">Swiss</p>
+        <h2 class="text-md font-semibold mb-2">Orina Eay De Perfume</h2>
+        <select class="border rounded-lg px-2 py-1 w-full mb-3">
+          <option>90ml</option>
+        </select>
+        <div class="mb-2">★★★★☆</div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-xl font-bold total">$20.00</span>
           <button
-            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full cursor-pointer hover:bg-white hover:text-black hover:border-1"
+            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
           >
-            Add to Cart <img src="assets/images/download (34).svg" alt="" />
+            Add to Cart
           </button>
         </div>
       </div>
-      <div class="relative flex items-center gap-6 ml-16 cartDiv">
-        <div class="bg-white w-[280px] h-[450px] p-6 rounded-2xl border-1">
-          <span class="absolute bg-gray-100 px-3 py-1 rounded-full text-sm"
-            >20%</span
-          >
 
-          <div class="flex justify-center my-6">
-            <img
-              id="productImages"
-              data-index="2"
-              src="./assets/images/imgi_41_1_6797f7be-438d-42cd-b925-e1765472a361_600x600.png"
-              class="h-36 object-contain transition duration-300 productImage"
-            />
-          </div>
-
-          <p class="text-gray-500">Rihanna</p>
-          <h2 class="text-lg font-semibold mb-2">Althair Eau De Parfum</h2>
-
-          <select class="border rounded-lg px-2 py-1 w-full mb-3">
-            <option>50ml</option>
-            <option>60ml</option>
-          </select>
-
-          <div class="mb-2">★★★★☆</div>
-
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-xl font-bold total">$20.00</span>
-            <span class="line-through text-gray-400">$25.00</span>
-          </div>
-
+      <div
+        class="relative bg-white w-[280px] h-[420px] p-6 rounded-2xl border mt-5 ladyPerfume"
+      >
+        <span
+          class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+          >20%</span
+        >
+        <div class="flex justify-center my-6">
+          <img
+            src="./assets/images/imgi_45_1_5087c1d9-362a-420a-a8d0-e2fa35f0b92b_600x600.png"
+            class="h-36 object-contain versalityProductImage"
+            data-index="2"
+          />
+        </div>
+        <p class="text-gray-500">Swiss</p>
+        <h2 class="text-md font-semibold mb-2">Delina Ra Dose Perfume</h2>
+        <select
+          class="border rounded-lg px-2 py-1 w-full mb-3"
+          aria-label="Select size"
+        >
+          <option>50ml</option>
+          <option>60ml</option>
+        </select>
+        <div class="mb-2">★★★★☆</div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-xl font-bold total">$20.00</span>
           <button
-            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full cursor-pointer hover:bg-white hover:text-black hover:border-1"
+            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
           >
             Add to Cart
-            <img src="assets/images/download (34).svg" alt="" />
           </button>
         </div>
       </div>
-      <div class="relative flex items-center gap-6 ml-16 cartDiv">
-        <div class="bg-white w-[280px] h-[450px] p-6 rounded-2xl border-1">
-          <span class="absolute bg-gray-100 px-3 py-1 rounded-full text-sm"
-            >20%</span
-          >
 
-          <div class="flex justify-center my-6">
-            <img
-              id="productImages"
-              data-index="3"
-              src="./assets/images/imgi_42_1_a7608a96-770b-4702-bfbb-a8086da3cf12_600x600.png"
-              class="h-36 object-contain transition duration-300 productImage"
-            />
-          </div>
-
-          <p class="text-gray-500">Rihanna</p>
-          <h2 class="text-lg font-semibold mb-2">Peguas Eau De Parfum</h2>
-
-          <select class="border rounded-lg px-2 py-1 w-full mb-3">
-            <option>50ml</option>
-            <option>60ml</option>
-          </select>
-
-          <div class="mb-2">★★★★☆</div>
-
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-xl font-bold total">$20.00</span>
-            <span class="line-through text-gray-400">$25.00</span>
-          </div>
-
+      <div
+        class="relative bg-white w-[280px] h-[420px] p-6 rounded-2xl border mt-5 ladyPerfume"
+      >
+        <span
+          class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+          >20%</span
+        >
+        <div class="flex justify-center my-6">
+          <img
+            src="./assets/images/imgi_45_1_5087c1d9-362a-420a-a8d0-e2fa35f0b92b_600x600.png"
+            class="h-36 object-contain versalityProductImage"
+            data-index="2"
+          />
+        </div>
+        <p class="text-gray-500">Swiss</p>
+        <h2 class="text-lg font-semibold mb-2">Delina Ra Dose Perfume</h2>
+        <select
+          class="border rounded-lg px-2 py-1 w-full mb-3"
+          aria-label="Select size"
+        >
+          <option>50ml</option>
+          <option>60ml</option>
+        </select>
+        <div class="mb-2">★★★★☆</div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-xl font-bold total">$20.00</span>
           <button
-            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full cursor-pointer hover:bg-white hover:text-black hover:border-1"
+            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
           >
             Add to Cart
-            <img src="assets/images/download (34).svg" alt="" />
           </button>
         </div>
       </div>
-      <div class="relative flex items-center gap-6 ml-16 cartDiv">
-        <div class="bg-white w-[280px] h-[450px] p-6 rounded-2xl border-1">
-          <span class="absolute bg-gray-100 px-3 py-1 rounded-full text-sm"
-            >20%</span
+    </section>
+
+    <section
+      class="flex justify-around items-center max-w-7xl mx-auto mt-20 gap-2"
+    >
+      <div
+        class="bg-[url('/assets/images/imgi_20_card-img-1.png')] rounded-lg text-white font-semibold w-[520px] h-[280px] bg-cover rounded-lg opacity-80"
+      >
+        <p class="text-xl font-bold pl-7 pt-8">Unisex</p>
+        <p class="text-md font-semibold pl-7 mt-3">
+          On an everyday level, household products<span class="block">
+            such as air fresheners, cleaners, and</span
           >
+          personal care items often utilize spray...
+        </p>
+        <button
+          href="#"
+          class="bg-white text-black ml-14 mt-14 p-2 rounded-full flex justify-center items-center gap-2 hover:bg-black hover:text-white opacity-80"
+        >
+          Check more products
+          <img
+            src="assets/images/download (2).svg"
+            alt=""
+            class="w-4 h-4"
+            id="arrowImg"
+          />
+        </button>
+      </div>
 
-          <div class="flex justify-center my-6">
-            <img
-              id="productImages"
-              data-index="0"
-              src="./assets/images/imgi_39_1_9fb478e8-5bf8-47b2-8632-27e5c0519a52_600x600.png"
-              class="h-36 object-contain transition duration-300 productImage"
-            />
-          </div>
+      <div
+        class="bg-[url('/assets/images/imgi_22_card-img-2.png')] w-[300px] h-[280px] bg-cover rounded-lg opacity-80"
+      >
+        <p class="text-xl font-bold pl-5 pt-8 text-white">Men</p>
+        <p class="text-white text-md font-semibold pl-5 mt-3">
+          In agricultur sprays are used to<span class="block">
+            apply fertilizers, pesticides, and </span
+          >herbicides to crops.
+        </p>
+        <button
+          href="#"
+          class="bg-white text-black ml-14 mt-14 p-2 rounded-full flex justify-center items-center gap-2 hover:bg-black hover:text-white"
+        >
+          Check more products
+          <img
+            src="assets/images/download (2).svg"
+            alt=""
+            class="w-4 h-4"
+            id="arrowImg"
+          />
+        </button>
+      </div>
 
-          <p class="text-gray-500">Rihanna</p>
-          <h2 class="text-lg font-semibold mb-2">Herod Eau De Parfum</h2>
+      <div
+        class="bg-[url('/assets/images/imgi_21_card-img-3.png')] w-[300px] h-[280px] bg-cover rounded-lg opacity-120"
+      >
+        <p class="text-xl font-bold pl-5 pt-8 text-white">Trending</p>
+        <p class="text-white text-md font-semibold pl-5 mt-3">
+          In agricultur sprays are used to<span class="block">
+            apply fertilizers, pesticides, and </span
+          >herbicides to crops.
+        </p>
+        <button
+          href="#"
+          class="bg-white text-black ml-14 mt-14 p-2 rounded-full flex justify-center items-center gap-2 hover:bg-black hover:text-white"
+        >
+          Check more products
+          <img
+            src="assets/images/download (2).svg"
+            alt=""
+            class="w-4 h-4"
+            id="arrowImg"
+          />
+        </button>
+      </div>
+    </section>
 
-          <select class="border rounded-lg px-2 py-1 w-full mb-3">
-            <option>50ml</option>
-            <option>60ml</option>
-          </select>
-
-          <div class="mb-2">★★★★☆</div>
-
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-xl font-bold total">$20.00</span>
-            <span class="line-through text-gray-400">$25.00</span>
-          </div>
-
+    <section
+      class="max-w-7xl mx-auto mt-20 flex justify-between items-center gap-10"
+    >
+      <div class="pl-7">
+        <h2 class="text-4xl font-bold tracking-widest">
+          Unique perfums for women <span class="block">and men </span>
+        </h2>
+        <p class="mt-7">
+          The applications of sprays span a wide spectrum, catering to
+          <span class="block">
+            industrial, artistic, medicinal, and everyday needs.</span
+          >
+        </p>
+        <div class="flex items-center gap-2 mt-4">
           <button
-            class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full cursor-pointer hover:bg-white hover:text-black hover:border-1"
+            class="w-26 h-12 bg-transparent text-black rounded-full border-1 border-black hover:bg-black hover:text-white"
           >
-            Add to Cart
-            <img src="assets/images/download (34).svg" alt="" />
+            Unisex
+          </button>
+          <button
+            class="w-26 h-12 bg-transparent text-black rounded-full border-1 border-black hover:bg-black hover:text-white"
+          >
+            Men
           </button>
         </div>
-        <img src="assets/images/download (37).svg" alt="" />
+        <button
+          class="w-54 h-12 flex items-center mt-6 justify-center gap-2 bg-transparent text-black rounded-full border-1 border-black hover:bg-black hover:text-white"
+        >
+          Check more products
+          <img src="assets/images/download (2).svg" alt="" class="w-4 h-4" />
+        </button>
+      </div>
+      <div class="relative w-full max-w-[600px] overflow-hidden py-4">
+        <button
+          type="button"
+          class="uniqueSwiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg shadow-md flex items-center justify-center text-white bg-black transition-colors"
+          aria-label="Previous"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          class="uniqueSwiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg bg-black shadow-md flex items-center justify-center text-white transition-colors"
+          aria-label="Next"
+        >
+          →
+        </button>
+        <div class="swiper uniqueSwiper px-12">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div
+                class="relative bg-white w-[280px] h-[420px] p-6 rounded-2xl border mx-auto ladyPerfume"
+              >
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_48_1_9a6876b2-beae-4ed4-af95-1331900080eb_600x600.png"
+                    class="h-36 object-contain versalityProductImage"
+                    data-index="0"
+                  />
+                </div>
+                <p class="text-gray-500">Swiss</p>
+                <h2 class="text-lg font-semibold mb-2">
+                  Valaya Eau De Perfume
+                </h2>
+                <select
+                  class="border rounded-lg px-2 py-1 w-full mb-3"
+                  aria-label="Select size"
+                >
+                  <option>50ml</option>
+                  <option>60ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div
+                class="relative bg-white w-[280px] h-[420px] p-6 rounded-2xl border mx-auto ladyPerfume"
+              >
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_43_1_540a9dd3-b974-41ff-8346-0dc24fac402d_600x600.png"
+                    class="h-36 object-contain versalityProductImage"
+                    data-index="1"
+                  />
+                </div>
+                <p class="text-gray-500">Swiss</p>
+                <h2 class="text-lg font-semibold mb-2">Orina Eay De Perfume</h2>
+                <select class="border rounded-lg px-2 py-1 w-full mb-3">
+                  <option>90ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div
+                class="relative bg-white w-[280px] h-[420px] p-6 rounded-2xl border mx-auto ladyPerfume"
+              >
+                <span
+                  class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
+                  >20%</span
+                >
+                <div class="flex justify-center my-6">
+                  <img
+                    src="./assets/images/imgi_45_1_5087c1d9-362a-420a-a8d0-e2fa35f0b92b_600x600.png"
+                    class="h-36 object-contain versalityProductImage"
+                    data-index="2"
+                  />
+                </div>
+                <p class="text-gray-500">Swiss</p>
+                <h2 class="text-lg font-semibold mb-2">
+                  Delina Ra Dose Perfume
+                </h2>
+                <select
+                  class="border rounded-lg px-2 py-1 w-full mb-3"
+                  aria-label="Select size"
+                >
+                  <option>50ml</option>
+                  <option>60ml</option>
+                </select>
+                <div class="mb-2">★★★★☆</div>
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-xl font-bold total">$20.00</span>
+                  <button
+                    class="bg-black flex gap-2 justify-center addCart text-white w-full py-2 rounded-full hover:bg-white hover:text-black hover:border-1"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
