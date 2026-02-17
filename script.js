@@ -114,7 +114,7 @@ function addOrUpdateCartItem(name, image, price) {
   const div = document.createElement("div");
   div.className = "flex items-center gap-3 p-2 border-b";
   div.dataset.name = name;
-  div.dataset.price = price; // store price
+  div.dataset.price = price;
 
   const deleteimage = "./assets/images/download (22).svg";
 
@@ -134,13 +134,11 @@ function addOrUpdateCartItem(name, image, price) {
     const qty = parseInt(div.querySelector(".qty").textContent);
     const itemPrice = parseInt(div.dataset.price);
 
-    // subtract from total
     total -= itemPrice * qty;
 
     updateDisplay();
     updateTotalCartValue();
 
-    // remove from DOM
     div.remove();
   };
 
@@ -192,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // Last section: 2 slides visible, 1 hidden; arrow click reveals next with loop
   new Swiper(".uniqueSwiper", {
     slidesPerView: 2,
     spaceBetween: 24,
@@ -203,18 +200,52 @@ document.addEventListener("DOMContentLoaded", () => {
       prevEl: ".uniqueSwiper-prev",
     },
   });
+
+  new Swiper(".versalitySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 24,
+    loop: true,
+    loopedSlides: 6,
+    navigation: {
+      nextEl: ".versalitySwiper-next",
+      prevEl: ".versalitySwiper-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 16 },
+      640: { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 4, spaceBetween: 24 },
+    },
+  });
+
+  new Swiper(".revoltionizingSwiper", {
+    slidesPerView: 4,
+    spaceBetween: 18,
+    loop: true,
+    loopedSlides: 5,
+    navigation: {
+      nextEl: ".revoltionizingSwiper-next",
+      prevEl: ".revoltionizingSwiper-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 16 },
+      640: { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 4, spaceBetween: 24 },
+    },
+  });
 });
 
 const versalityImage = [
   "./assets/images/imgi_48_1_9a6876b2-beae-4ed4-af95-1331900080eb_600x600.png",
   "./assets/images/imgi_43_1_540a9dd3-b974-41ff-8346-0dc24fac402d_600x600.png",
   "./assets/images/imgi_45_1_5087c1d9-362a-420a-a8d0-e2fa35f0b92b_600x600.png",
+  "./assets/images/imgi_47_1_9d224ff4-a370-4724-8cc0-394d4af127a3_600x600.png",
 ];
 
 const versalityHoverImage = [
   "./assets/images/imgi_58_2_b73caffe-8acf-46f9-a49d-228b958e2609_600x600.png",
   "./assets/images/imgi_44_2_5d7f7c06-056c-4471-b62f-78fdb174ffe7_600x600.png",
   "./assets/images/imgi_54_2_6e9dd3e5-441e-47db-9286-6b14dc374a56_600x600.png",
+  "./assets/images/imgi_57_2_f25452af-a33b-4e4a-bbe5-21cfde871ef0_600x600.png",
 ];
 
 const versalityData = [
@@ -233,6 +264,10 @@ const versalityData = [
   {
     brand: "Swiss",
     title: "Delina Ra Dose Perfume",
+  },
+  {
+    brand: "Swiss",
+    title: "Cassli Eau De Perfume",
   },
 ];
 
@@ -303,7 +338,6 @@ const unisexData = [
   },
 ];
 
-// Versality filter: keep one tab active (black bg), others inactive (white bg)
 function setVersalityActive(activeBtn) {
   const allBtns = document.querySelectorAll(".versalityFilterBtn");
   const handbagPath = "./assets/images/handbag.png";
@@ -417,7 +451,6 @@ if (solidBtn) {
   });
 }
 
-// Fragrance (default) tab: reset cards to versality content
 const fragranceBtn = document.getElementById("fragranceBtn");
 if (fragranceBtn) {
   fragranceBtn.addEventListener("click", (e) => {
@@ -430,7 +463,24 @@ if (fragranceBtn) {
         card.querySelector("p").textContent = versalityData[i].brand;
         card.querySelector("h2").textContent = versalityData[i].title;
         const img = card.querySelector(".versalityProductImage");
-        if (img && versalityImage[i]) img.src = versalityImage[i];
+        if (img && versalityImage[i]) {
+          img.src = versalityImage[i];
+
+          const clonedImg = img.cloneNode(true);
+          img.parentNode.replaceChild(clonedImg, img);
+
+          clonedImg.addEventListener("mouseenter", () => {
+            if (versalityHoverImage[i]) {
+              clonedImg.src = versalityHoverImage[i];
+            }
+          });
+
+          clonedImg.addEventListener("mouseleave", () => {
+            if (versalityImage[i]) {
+              clonedImg.src = versalityImage[i];
+            }
+          });
+        }
         const priceSpan = card.querySelector(".total");
         if (priceSpan) priceSpan.textContent = "$20.00";
       }
@@ -438,7 +488,6 @@ if (fragranceBtn) {
   });
 }
 
-// Close cart when clicking outside
 document.addEventListener("click", (e) => {
   const cart = document.getElementById("cart");
   const cartTrigger = document.getElementById("cartTrigger");
@@ -452,13 +501,3 @@ document.addEventListener("click", (e) => {
     cart.classList.add("hidden");
   }
 });
-
-// const arrowImage = document.getElementById("arrowImg");
-
-// arrowImage.addEventListener("mouseover", () => {
-//   arrowImage.src = "assets/images/download (49).svg";
-
-//   arrowImage.addEventListener("mouseout", () => {
-//     arrowImage.src = "assets/images/download (2).svg";
-//   });
-// });
