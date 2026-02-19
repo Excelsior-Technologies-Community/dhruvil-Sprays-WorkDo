@@ -185,19 +185,25 @@ document.addEventListener("DOMContentLoaded", () => {
     watchOverflow: false,
     watchSlidesProgress: true,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".mySwiper-next",
+      prevEl: ".mySwiper-prev",
     },
+    
   });
 
   new Swiper(".uniqueSwiper", {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 24,
     loop: true,
     loopedSlides: 3,
     navigation: {
       nextEl: ".uniqueSwiper-next",
       prevEl: ".uniqueSwiper-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 16 },
+      640: { slidesPerView: 1, spaceBetween: 20 },
+      1024: { slidesPerView: 2, spaceBetween: 24 },
     },
   });
 
@@ -230,6 +236,38 @@ document.addEventListener("DOMContentLoaded", () => {
       0: { slidesPerView: 1, spaceBetween: 16 },
       640: { slidesPerView: 2, spaceBetween: 20 },
       1024: { slidesPerView: 4, spaceBetween: 24 },
+    },
+  });
+
+  new Swiper(".testimonialsSwiper", {
+    slidesPerView: 2,
+    spaceBetween: 24,
+    loop: true,
+    loopedSlides: 3,
+    navigation: {
+      nextEl: ".testimonialsSwiper-next",
+      prevEl: ".testimonialsSwiper-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 16 },
+      640: { slidesPerView: 1, spaceBetween: 20 },
+      1024: { slidesPerView: 2, spaceBetween: 24 },
+    },
+  });
+
+  new Swiper(".categorySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    loop: true,
+    loopedSlides: 4,
+    navigation: {
+      nextEl: ".categorySwiper-next",
+      prevEl: ".categorySwiper-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 16 },
+      640: { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 2, spaceBetween: 24 },
     },
   });
 });

@@ -8,18 +8,18 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Sprays WorkDo</title>
   </head>
 
   <body class="bg-gray-200">
     <header class="w-full fixed top-0 left-0 z-50">
       <div
-        class="bg-black text-white flex items-center justify-between px-30 py-3 border-b"
+        class="bg-black text-white flex items-center justify-between px-4 md:px-10 lg:px-30 py-3 border-b"
       >
-        <h2 class="text-md">Monday - Friday 8:00 AM - 9:00 PM</h2>
+        <h2 class="text-xs sm:text-sm md:text-md">Monday - Friday 8:00 AM - 9:00 PM</h2>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 md:gap-4">
           <div class="relative">
             <button
               onclick="
@@ -112,18 +112,18 @@
             </div>
           </div>
 
-          <a href="#" class="text-sm">Faq</a>
-          <a href="#" class="text-sm">About Us</a>
+          <a href="#" class="text-sm hidden sm:inline">Faq</a>
+          <a href="#" class="text-sm hidden sm:inline">About Us</a>
         </div>
       </div>
 
       <div
-        class="bg-black text-white flex items-center justify-between px-30 py-4 border-t border-gray-800"
+        class="bg-black text-white flex items-center justify-between px-4 md:px-10 lg:px-30 py-4 border-t border-gray-800"
       >
-        <div class="flex items-center gap-10">
-          <h1 class="text-3xl font-semibold border-r-2 pr-5">Sprays</h1>
+        <div class="flex items-center gap-4 md:gap-10">
+          <h1 class="text-2xl md:text-3xl font-semibold border-r-2 pr-3 md:pr-5">Sprays</h1>
 
-          <nav class="flex items-center gap-6 text-sm">
+          <nav class="hidden md:flex items-center gap-6 text-sm">
             <a href="#" class="flex items-center gap-1">
               All Categories
               <img src="assets/images/down-chevron.png" class="w-3 h-3" />
@@ -146,7 +146,7 @@
           </nav>
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 md:gap-4">
           <div
             class="w-10 h-10 rounded-full border border-gray-600 bg-white flex items-center justify-center"
           >
@@ -155,7 +155,7 @@
 
           <div
             id="cartTrigger"
-            class="flex items-center gap-3 border border-gray-600 rounded-full px-5 py-2 relative cursor-pointer"
+            class="flex items-center gap-3 border border-gray-600 rounded-full px-3 md:px-5 py-2 relative cursor-pointer"
             onclick="
               updateTotalCartValue();
               document.getElementById('cart').classList.toggle('hidden');
@@ -165,7 +165,7 @@
             <span id="cartValue" class="text-md">$0.00</span>
 
             <div
-              class="absolute flex flex-col hidden w-80 min-h-[200px] max-h-[400px] bg-white text-black top-full right-0 mt-2 rounded-lg p-4 shadow-xl overflow-y-auto z-[60]"
+              class="absolute flex flex-col hidden w-72 sm:w-80 min-h-[200px] max-h-[400px] bg-white text-black top-full right-0 mt-2 rounded-lg p-4 shadow-xl overflow-y-auto z-[60]"
               id="cart"
             >
               <div class="flex flex-col w-full" id="cartItems">
@@ -183,20 +183,35 @@
               </div>
             </div>
           </div>
+
+          <!-- Hamburger for mobile -->
+          <button id="mobileMenuBtn" class="md:hidden flex flex-col gap-1 p-2" onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
+            <span class="block w-5 h-0.5 bg-white"></span>
+            <span class="block w-5 h-0.5 bg-white"></span>
+            <span class="block w-5 h-0.5 bg-white"></span>
+          </button>
         </div>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="mobileNav" class="hidden md:hidden bg-black text-white px-4 py-3 flex flex-col gap-3 text-sm border-t border-gray-800">
+        <a href="#" class="flex items-center gap-1">All Categories <img src="assets/images/down-chevron.png" class="w-3 h-3" /></a>
+        <a href="#" class="flex items-center gap-1">Pages <img src="assets/images/down-chevron.png" class="w-3 h-3" /></a>
+        <a href="#" class="flex items-center gap-1">Collections <img src="assets/images/down-chevron.png" class="w-3 h-3" /></a>
+        <a href="#" class="flex items-center gap-1">Blog <img src="assets/images/down-chevron.png" class="w-3 h-3" /></a>
       </div>
     </header>
 
     <section
-      class="bg-[url('./assets/images/imgi_133_home-bg.png')] bg-cover bg-center w-full h-[calc(100vh-120px)] mt-[120px] flex items-center"
+      class="bg-[url('./assets/images/imgi_133_home-bg.png')] bg-cover bg-center w-full min-h-[calc(100vh-120px)] mt-[120px] flex items-center py-10"
     >
       <div
-        class="max-w-7xl mx-auto w-full px-10 flex items-center justify-between"
+        class="max-w-7xl mx-auto w-full px-4 md:px-10 flex flex-col md:flex-row items-center justify-between gap-8"
       >
-        <div class="max-w-xl">
+        <div class="max-w-xl w-full">
           <p class="text-white text-lg">Spray</p>
 
-          <h2 class="text-white text-6xl font-bold leading-tight">
+          <h2 class="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
             The World of Spray
             <span class="block">Technique</span>
           </h2>
@@ -234,7 +249,7 @@
             </a>
           </div>
 
-          <div class="flex items-center mt-6 gap-7">
+          <div class="flex flex-wrap items-center mt-6 gap-4 md:gap-7">
             <div class="flex items-center gap-2">
               <img src="assets/images/imgi_14_sev-1.png" class="w-6 h-6" />
               <div>
@@ -269,9 +284,9 @@
           </div>
         </div>
 
-        <div class="relative flex items-center gap-6 ml-16">
+        <div class="relative hidden md:flex items-center gap-6 ml-0 md:ml-16">
           <div
-            class="relative bg-white w-[320px] h-[500px] p-6 rounded-2xl border border-gray-200 heroProduct"
+            class="relative bg-white w-[280px] lg:w-[320px] h-[500px] p-6 rounded-2xl border border-gray-200 heroProduct"
           >
             <span
               class="absolute top-2 right-2 bg-gray-100 px-3 py-1 rounded-full text-sm"
@@ -325,15 +340,15 @@
       </div>
     </section>
 
-    <section class="w-full h-[450px] flex items-center">
-      <div class="">
+    <section class="w-full py-10 md:min-h-[450px]  flex flex-col md:flex-row items-center px-4 md:px-0">
+      <div class="hidden md:block">
         <img src="assets/images/imgi_18_cs.png" alt="" class="w-32" />
       </div>
 
-      <div class="w-2/5 ml-24">
+      <div class="w-full md:w-2/5 md:ml-24">
         <p class="mb-2">Spray</p>
 
-        <h2 class="text-5xl font-bold tracking-wider">
+        <h2 class="text-2xl md:text-4xl font-bold tracking-wider">
           The Science Behind
           <span class="block">Spray Dynamics</span>
         </h2>
@@ -348,28 +363,30 @@
           <span class="block">across fields.</span>
         </p>
 
-        <div class="flex gap-4 mt-6">
-          <div
+        <div class="flex flex-wrap gap-4 mt-6">
+          <a
+            href="#"
             class="flex items-center justify-center gap-2 bg-black text-white px-6 h-10 rounded-full"
           >
-            <a href="#">Unisex Scent</a>
+            <span class="text-md md:text-lg">Unisex Scent</span>
             <img src="assets/images/download (34).svg" class="w-4 h-4" />
-          </div>
+          </a>
 
-          <div
+          <a
+            href="#"
             class="flex items-center justify-center gap-2 bg-black text-white px-6 h-10 rounded-full"
           >
-            <a href="#">Diamond Scent</a>
+            <span>Diamond Scent</span>
             <img src="assets/images/download (34).svg" class="w-4 h-4" />
-          </div>
+          </a>
         </div>
       </div>
 
-      <div class="w-2/5 flex flex-col items-center text-center">
+      <div class="w-full md:w-2/5 flex flex-col items-center text-center mt-8 md:mt-0">
         <img
           src="assets/images/imgi_19_chocolate2.png"
           alt=""
-          class="w-80 h-56 object-contain"
+          class="w-60 md:w-80 h-auto md:h-56 object-contain"
         />
 
         <p class="mt-6 leading-relaxed">
@@ -386,18 +403,27 @@
       </div>
     </section>
 
-    <h2 class="tracking-wider text-4xl font-bold ml-26">
+    <h2 class="tracking-wider text-2xl sm:text-3xl md:text-4xl font-bold px-4 md:ml-26">
       Transforming Surfaces with Spray Mastery
     </h2>
-    <section class="w-full h-[450px] mt-12 relative px-10 overflow-x-hidden">
-      <div
-        class="swiper-button-prev !text-black !w-8 !h-8 after:!text-lg"
-      ></div>
-      <div
-        class="swiper-button-next !text-black !w-8 !h-8 after:!text-lg"
-      ></div>
+    <section class="max-w-7xl mx-auto mt-3 px-4">
+      <div class="relative">
+        <button
+          type="button"
+          class="mySwiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg bg-white shadow-md flex items-center justify-center text-black hover:bg-gray-100 transition-colors"
+          aria-label="Previous"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          class="mySwiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg bg-white shadow-md flex items-center justify-center text-black hover:bg-gray-100 transition-colors"
+          aria-label="Next"
+        >
+          →
+        </button>
 
-      <div class="swiper mySwiper">
+        <div class="swiper mySwiper px-12 py-6">
         <div class="swiper-wrapper">
           <div class="swiper-slide !w-auto">
             <div class="relative cartDiv">
@@ -574,10 +600,10 @@
     </section>
 
     <section
-      class="w-full h-[450px] flex flex-col items-center justify-center bg-[url('./assets/images/imgi_136_bg2.png')] bg-cover bg-center"
+      class="w-full min-h-[350px] md:h-[450px] flex flex-col items-center justify-center bg-[url('./assets/images/imgi_136_bg2.png')] bg-cover bg-center mt-10 px-4"
     >
-      <p class="text-white text-xl pt-14">Spray</p>
-      <h2 class="text-white tracking-wider text-6xl font-semibold">
+      <p class="text-white text-xl pt-10 md:pt-14">Spray</p>
+      <h2 class="text-white tracking-wider text-2xl sm:text-4xl md:text-6xl font-semibold text-center">
         The Science and art of
         <span class="block text-center mt-3">Sprays</span>
       </h2>
@@ -618,13 +644,13 @@
     </section>
 
     <div
-      class="flex justify-between items-center max-w-6xl h-[100px] mx-auto mt-10"
+      class="flex flex-col sm:flex-row flex-wrap justify-between items-start sm:items-center max-w-6xl mx-auto px-4 mt-10 gap-4"
     >
       <div>
-        <h2 class="text-4xl font-bold tracking-wider">Exploring the</h2>
-        <p class="text-4xl tracking-widest mt-2">Versality of Sprays</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider">Exploring the</h2>
+        <p class="text-2xl sm:text-3xl md:text-4xl tracking-widest mt-2">Versality of Sprays</p>
       </div>
-      <div class="flex items-center justify-center gap-2">
+      <div class="flex flex-wrap items-center justify-start sm:justify-center gap-2">
         <a
           href="#"
           id="fragranceBtn"
@@ -865,108 +891,101 @@
       </div>
     </section>
 
-    <section
-      class="flex justify-around items-center max-w-7xl mx-auto mt-20 gap-2"
-    >
-      <div
-        class="bg-[url('/assets/images/imgi_20_card-img-1.png')] rounded-lg text-white font-semibold w-[520px] h-[280px] bg-cover rounded-lg opacity-80"
-      >
-        <p class="text-xl font-bold pl-7 pt-8">Unisex</p>
-        <p class="text-md font-semibold pl-7 mt-3">
-          On an everyday level, household products<span class="block">
-            such as air fresheners, cleaners, and</span
+    <section class="max-w-7xl mx-auto mt-10 md:mt-20 px-4">
+      <div class="flex flex-col md:flex-row gap-4 items-stretch">
+
+        <div
+          class="bg-[url('/assets/images/imgi_20_card-img-1.png')] rounded-lg text-white font-semibold w-full md:w-[40%] h-[280px] bg-cover flex flex-col justify-between p-6 flex-shrink-0"
+        >
+          <div>
+            <p class="text-xl font-bold">Unisex</p>
+            <p class="text-md font-semibold mt-3">
+              On an everyday level, household products<span class="block">such as air fresheners, cleaners, and</span>
+              personal care items often utilize spray...
+            </p>
+          </div>
+          <button class="bg-white text-black self-start px-4 py-2 rounded-full flex items-center gap-2 hover:bg-black hover:text-white transition-colors">
+            Check more products
+            <img src="assets/images/download (2).svg" alt="" class="w-4 h-4" />
+          </button>
+        </div>
+
+        <div class="relative w-full md:flex-1 min-w-0">
+          <button
+            type="button"
+            class="categorySwiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-lg bg-black shadow-md flex items-center justify-center text-white hover:bg-gray-800 transition-colors"
+            aria-label="Previous"
           >
-          personal care items often utilize spray...
-        </p>
-        <button
-          href="#"
-          class="bg-white text-black ml-14 mt-14 p-2 rounded-full flex justify-center items-center gap-2 hover:bg-black hover:text-white opacity-80"
-        >
-          Check more products
-          <img
-            src="assets/images/download (2).svg"
-            alt=""
-            class="w-4 h-4"
-            id="arrowImg"
-          />
-        </button>
-      </div>
+            ←
+          </button>
+          <button
+            type="button"
+            class="categorySwiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-lg bg-black shadow-md flex items-center justify-center text-white hover:bg-gray-800 transition-colors"
+            aria-label="Next"
+          >
+            →
+          </button>
 
-      <div
-        class="bg-[url('/assets/images/imgi_22_card-img-2.png')] w-[300px] h-[280px] bg-cover rounded-lg opacity-80"
-      >
-        <p class="text-xl font-bold pl-5 pt-8 text-white">Men</p>
-        <p class="text-white text-md font-semibold pl-5 mt-3">
-          In agricultur sprays are used to<span class="block">
-            apply fertilizers, pesticides, and </span
-          >herbicides to crops.
-        </p>
-        <button
-          href="#"
-          class="bg-white text-black ml-14 mt-14 p-2 rounded-full flex justify-center items-center gap-2 hover:bg-black hover:text-white"
-        >
-          Check more products
-          <img
-            src="assets/images/download (2).svg"
-            alt=""
-            class="w-4 h-4"
-            id="arrowImg"
-          />
-        </button>
-      </div>
+          <div class="swiper categorySwiper px-10">
+            <div class="swiper-wrapper">
 
-      <div
-        class="bg-[url('/assets/images/imgi_21_card-img-3.png')] w-[300px] h-[280px] bg-cover rounded-lg opacity-120"
-      >
-        <p class="text-xl font-bold pl-5 pt-8 text-white">Trending</p>
-        <p class="text-white text-md font-semibold pl-5 mt-3">
-          In agricultur sprays are used to<span class="block">
-            apply fertilizers, pesticides, and </span
-          >herbicides to crops.
-        </p>
-        <button
-          href="#"
-          class="bg-white text-black ml-14 mt-14 p-2 rounded-full flex justify-center items-center gap-2 hover:bg-black hover:text-white"
-        >
-          Check more products
-          <img
-            src="assets/images/download (2).svg"
-            alt=""
-            class="w-4 h-4"
-            id="arrowImg"
-          />
-        </button>
-      </div>
+              <div class="swiper-slide">
+                <div class="bg-[url('/assets/images/imgi_22_card-img-2.png')] rounded-lg w-full h-[280px] bg-cover flex flex-col justify-between p-6">
+                  <div>
+                    <p class="text-xl font-bold text-white">Men</p>
+                    <p class="text-white text-md font-semibold mt-3">
+                      In agricultur sprays are used to<span class="block">apply fertilizers, pesticides, and</span>herbicides to crops.
+                    </p>
+                  </div>
+                  <button class="bg-white text-black self-start px-4 py-2 rounded-full flex items-center gap-2 hover:bg-black hover:text-white transition-colors">
+                    Check more products
+                    <img src="assets/images/download (2).svg" alt="" class="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
 
-      <div
-        class="bg-[url('/assets/images/imgi_22_card-img-2.png')] w-[300px] h-[280px] bg-cover rounded-lg opacity-120"
-      >
-        <p class="text-xl font-bold pl-5 pt-8 text-white">Solid Perfume</p>
-        <p class="text-white text-md font-semibold pl-5 mt-3">
-          Oral sprays are used for localized
-          <span class="block"> medication delivery or faciliate</span>swalloing
-          in indiviauls with..
-        </p>
-        <button
-          href="#"
-          class="bg-white text-black ml-14 mt-14 p-2 rounded-full flex justify-center items-center gap-2 hover:bg-black hover:text-white"
-        >
-          Check more products
-          <img
-            src="assets/images/download (2).svg"
-            alt=""
-            class="w-4 h-4"
-            id="arrowImg"
-          />
-        </button>
+              <div class="swiper-slide">
+                <div class="bg-[url('/assets/images/imgi_21_card-img-3.png')] rounded-lg w-full h-[280px] bg-cover flex flex-col justify-between p-6">
+                  <div>
+                    <p class="text-xl font-bold text-white">Trending</p>
+                    <p class="text-white text-md font-semibold mt-3">
+                      In agricultur sprays are used to<span class="block">apply fertilizers, pesticides, and</span>herbicides to crops.
+                    </p>
+                  </div>
+                  <button class="bg-white text-black self-start px-4 py-2 rounded-full flex items-center gap-2 hover:bg-black hover:text-white transition-colors">
+                    Check more products
+                    <img src="assets/images/download (2).svg" alt="" class="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="bg-[url('/assets/images/imgi_22_card-img-2.png')] rounded-lg w-full h-[280px] bg-cover flex flex-col justify-between p-6">
+                  <div>
+                    <p class="text-xl font-bold text-white">Solid Perfume</p>
+                    <p class="text-white text-md font-semibold mt-3">
+                      Oral sprays are used for localized<span class="block">medication delivery or faciliate</span>swalloing in indiviauls with..
+                    </p>
+                  </div>
+                  <button class="bg-white text-black self-start px-4 py-2 rounded-full flex items-center gap-2 hover:bg-black hover:text-white transition-colors">
+                    Check more products
+                    <img src="assets/images/download (2).svg" alt="" class="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <section
-      class="max-w-7xl mx-auto mt-20 flex justify-between items-center gap-10"
+      class="max-w-7xl mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-10 px-4"
     >
-      <div class="pl-7">
-        <h2 class="text-4xl font-bold tracking-widest">
+      <div class="w-full md:w-1/2 md:pl-7">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-widest">
           Unique perfums for women <span class="block">and men </span>
         </h2>
         <p class="mt-7">
@@ -975,26 +994,26 @@
             industrial, artistic, medicinal, and everyday needs.</span
           >
         </p>
-        <div class="flex items-center gap-2 mt-4">
+        <div class="flex flex-wrap items-center gap-2 mt-4">
           <button
-            class="w-26 h-12 bg-transparent text-black rounded-full border-1 border-black hover:bg-black hover:text-white"
+            class="px-6 h-12 bg-transparent text-black rounded-full border border-black hover:bg-black hover:text-white"
           >
             Unisex
           </button>
           <button
-            class="w-26 h-12 bg-transparent text-black rounded-full border-1 border-black hover:bg-black hover:text-white"
+            class="px-6 h-12 bg-transparent text-black rounded-full border border-black hover:bg-black hover:text-white"
           >
             Men
           </button>
         </div>
         <button
-          class="w-54 h-12 flex items-center mt-6 justify-center gap-2 bg-transparent text-black rounded-full border-1 border-black hover:bg-black hover:text-white"
+          class="px-6 h-12 flex items-center mt-6 justify-center gap-2 bg-transparent text-black rounded-full border border-black hover:bg-black hover:text-white"
         >
           Check more products
           <img src="assets/images/download (2).svg" alt="" class="w-4 h-4" />
         </button>
       </div>
-      <div class="relative w-full max-w-[600px] overflow-hidden py-4">
+      <div class="relative w-full md:w-1/2 overflow-hidden py-4">
         <button
           type="button"
           class="uniqueSwiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg shadow-md flex items-center justify-center text-white bg-black transition-colors"
@@ -1121,15 +1140,15 @@
       </div>
     </section>
 
-    <section class="w-full py-20">
+    <section class="w-full py-10 md:py-20">
       <div
-        class="max-w-7xl mx-auto px-10 flex items-center justify-between gap-10"
+        class="max-w-7xl mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center justify-between gap-10"
       >
-        <div class="w-1/3 text-left">
-          <h2 class="text-3xl font-bold tracking-wide mb-2">
+        <div class="w-full md:w-1/3 text-left">
+          <h2 class="text-2xl md:text-3xl font-bold tracking-wide mb-2">
             Power, and Practicality
           </h2>
-          <p class="text-2xl font-light mb-6">Manufacturing Processes</p>
+          <p class="text-xl md:text-2xl font-light mb-6">Manufacturing Processes</p>
 
           <p class="text-md leading-relaxed mb-6">
             Sprays, in their multifaceted forms, represent a diverse range of
@@ -1146,7 +1165,7 @@
         </div>
 
         <!-- Center Image -->
-        <div class="w-1/3 flex justify-center">
+        <div class="w-full md:w-1/3 flex justify-center">
           <img
             src="assets/images/imgi_23_chocolate4.png"
             alt="Perfume Bottle"
@@ -1154,12 +1173,11 @@
           />
         </div>
 
-        <!-- Right Content -->
-        <div class="w-1/3 text-left">
-          <h2 class="text-3xl font-bold tracking-wide mb-2">
+        <div class="w-full md:w-1/3 text-left">
+          <h2 class="text-2xl md:text-3xl font-bold tracking-wide mb-2">
             The Artistry of Atomization
           </h2>
-          <p class="text-2xl font-light mb-6">Diving into Spray</p>
+          <p class="text-xl md:text-2xl font-light mb-6">Diving into Spray</p>
 
           <p class="text-md leading-relaxed mb-6">
             The Artistry of Atomization: Diving into Spray Techniques
@@ -1176,11 +1194,11 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto mt-5">
-      <h1 class="font-bold text-5xl text-center pt-10">
+    <section class="max-w-7xl mx-auto mt-5 px-4">
+      <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl text-center pt-10">
         Subscribe newsletter and
       </h1>
-      <p class="text-5xl pt-3 text-center">get -20% off</p>
+      <p class="text-3xl sm:text-4xl md:text-5xl pt-3 text-center">get -20% off</p>
       <p class="text-md text-center pt-6">
         Sprays play a crucial role in manufacturing, from cooling systems in
         industrial machinery to lubrication<span class="block"
@@ -1188,25 +1206,25 @@
         >
       </p>
       <div
-        class="mx-auto bg-gray-100 max-w-2xl h-[70px] mt-4 p-2 rounded-full border-1 flex justify-between items-center"
+        class="mx-auto bg-gray-100 max-w-xs sm:max-w-md md:max-w-2xl h-[70px] mt-4 p-2 rounded-full border-1 flex justify-between items-center"
       >
         <input
           type="text"
           name=""
           id=""
           placeholder="Enter email address..."
-          class="p-5"
+          class="p-5 flex-1 min-w-0 bg-transparent outline-none"
         />
         <button
-          class="bg-black text-white text-center items-center rounded-full w-10 h-10"
+          class="bg-black text-white text-center items-center rounded-full w-10 h-10 flex-shrink-0"
         >
           →
         </button>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto mt-18 pt-5">
-      <p class="text-4xl font-bold text-center">
+    <section class="max-w-7xl mx-auto mt-18 pt-5 px-4">
+      <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-center">
         Revoltionizing Innovation and <span class="block">Practically</span>
       </p>
       <p class="text-center font-md pt-4">
@@ -1245,11 +1263,7 @@
                   />
                   <p class="text-sm pt-3 pl-2 font-semibold">Article</p>
                   <p class="text-md pl-2 font-bold">The Perfume Diaries</p>
-                  <p class="text-sm pt-1 pl-2">
-                    Aromatic microcapsule slowly releases a subtle fragrance,
-                    removing odor, relieving stress, and offering emotional
-                    stability and refreshing feel as the capsules are blown off
-                    by friction.
+                  <p class="text-sm pt-1 pl-2 line-clamp-5">Fragrance microcapsule pigment is an encapsulated fragrance produced by micro-encapsulation technology and can be applied in textile finishing and the process for scented materials.Good Vibes Only Perfume is a delightful fragrance that encapsulates the essence of positivity, joy, and a carefree spirit. It is a scent that radiates happiness and spreads a contagious aura of optimism wherever it goes.The initial burst of Good Vibes Only Perfume is like a sunlit citrus explosion. The vibrant notes of juicy oranges and zesty lemons instantly uplift your mood, creating a feeling of pure bliss and energy. These invigorating citrus notes awaken your senses and set the stage for a refreshing olfactory journey.As the fragrance unfolds, a bouquet of blooming flowers takes center stage. The delicate petals of jasmine and lily of the valley embrace you with their sweet, floral embrace. The floral accords exude a sense of femininity and grace, evoking feelings of warmth and serenity.At its core, Good Vibes Only Perfume reveals a subtle hint of tropical fruits, adding a touch of exoticism and playfulness to the fragrance. The succulent notes of pineapple and mango transport you to a sun-kissed paradise, where worries melt away and a sense of carefree joy fills the air.The fragrance settles into a comforting base that wraps you in a warm embrace.Bella Vita Organic Gold Woman is a luxurious and captivating fragrance that embodies the essence of elegance, femininity, and empowerment. It is a scent designed to celebrate the radiance and beauty of the modern woman.
                   </p>
                   <div
                     class="flex justify-around items-center mx-auto w-[260px] h-[46px] mt-2"
@@ -1272,11 +1286,7 @@
                   />
                   <p class="text-sm pt-3 pl-2 font-semibold">Article</p>
                   <p class="text-md pl-2 font-bold">Sentimental Surprises</p>
-                  <p class="text-sm pt-1 pl-2">
-                    Aromatic microcapsule slowly releases a subtle fragrance,
-                    removing odor, relieving stress, and offering emotional
-                    stability and refreshing feel as the capsules are blown off
-                    by friction.
+                  <p class="text-sm pt-1 pl-2 line-clamp-5">Aromatic microcapsule slowly releases a subtle fragrance, removing odor, relieving stress, and offering emotional stability and refreshing feel as the capsules are blown off by friction.Good Vibes Only Perfume is a delightful fragrance that encapsulates the essence of positivity, joy, and a carefree spirit. It is a scent that radiates happiness and spreads a contagious aura of optimism wherever it goes.The initial burst of Good Vibes Only Perfume is like a sunlit citrus explosion. The vibrant notes of juicy oranges and zesty lemons instantly uplift your mood, creating a feeling of pure bliss and energy. These invigorating citrus notes awaken your senses and set the stage for a refreshing olfactory journey.As the fragrance unfolds, a bouquet of blooming flowers takes center stage. The delicate petals of jasmine and lily of the valley embrace you with their sweet, floral embrace. The floral accords exude a sense of femininity and grace, evoking feelings of warmth and serenity.At its core, Good Vibes Only Perfume reveals a subtle hint of tropical fruits, adding a touch of exoticism and playfulness to the fragrance. The succulent notes of pineapple and mango transport you to a sun-kissed paradise, where worries melt away and a sense of carefree joy fills the air.The fragrance settles into a comforting base that wraps you in a warm embrace.Whispering Jasmine is an enchanting fragrance that captures the essence of a blooming jasmine garden at dusk. As you inhale its delicate aroma, you are transported to a serene oasis where the air is filled with a sense of tranquility and floral elegance.
                   </p>
                   <div
                     class="flex justify-around items-center mx-auto w-[240px] h-[40px] mt-2"
@@ -1299,11 +1309,7 @@
                   />
                   <p class="text-sm pt-3 pl-2 font-semibold">Article</p>
                   <p class="text-md pl-2 font-bold">The Scent Scribe</p>
-                  <p class="text-sm pt-1 pl-2">
-                    Aromatic microcapsule slowly releases a subtle fragrance,
-                    removing odor, relieving stress, and offering emotional
-                    stability and refreshing feel as the capsules are blown off
-                    by friction.
+                  <p class="text-sm pt-1 pl-2 line-clamp-5">Thermal resistance: If high temperature needs to be applied, less than 10 minutes at 230℃ is recommended. A prolonged operation at high temperature higher than 75℃ must be avoided because fragrance microcapsule organic matters may be resolved at higher than 80℃.Good Vibes Only Perfume is a delightful fragrance that encapsulates the essence of positivity, joy, and a carefree spirit. It is a scent that radiates happiness and spreads a contagious aura of optimism wherever it goes.The initial burst of Good Vibes Only Perfume is like a sunlit citrus explosion. The vibrant notes of juicy oranges and zesty lemons instantly uplift your mood, creating a feeling of pure bliss and energy. These invigorating citrus notes awaken your senses and set the stage for a refreshing olfactory journey.As the fragrance unfolds, a bouquet of blooming flowers takes center stage. The delicate petals of jasmine and lily of the valley embrace you with their sweet, floral embrace. The floral accords exude a sense of femininity and grace, evoking feelings of warmth and serenity.At its core, Good Vibes Only Perfume reveals a subtle hint of tropical fruits, adding a touch of exoticism and playfulness to the fragrance. The succulent notes of pineapple and mango transport you to a sun-kissed paradise, where worries melt away and a sense of carefree joy fills the air.The fragrance settles into a comforting base that wraps you in a warm embrace.There is a captivating depth to Whispering Jasmine that lingers, as warm base notes of sandalwood and musk intertwine with the floral bouquet. These earthy undertones add a sense of warmth and sensuality to the fragrance, leaving a lasting impression of elegance and grace.
                   </p>
                   <div
                     class="flex justify-around items-center mx-auto w-[260px] h-[46px] mt-2"
@@ -1326,11 +1332,8 @@
                   />
                   <p class="text-sm pt-3 pl-2 font-semibold">Article</p>
                   <p class="text-md pl-2 font-bold">The Scented Heaven</p>
-                  <p class="text-sm pt-1 pl-2">
-                    Aromatic microcapsule slowly releases a subtle fragrance,
-                    removing odor, relieving stress, and offering emotional
-                    stability and refreshing feel as the capsules are blown off
-                    by friction.
+                  <p class="text-sm pt-1 pl-2 line-clamp-5">
+                    Our raw materials derived from nature delivered to us with love by the farmers and the distillers. And since we take a lot from them, we try to give it back. We give away one percent of our gross annual sale for the education of underprivileged kids – the children of farmers and the labor in distilleries.Good Vibes Only Perfume is a delightful fragrance that encapsulates the essence of positivity, joy, and a carefree spirit. It is a scent that radiates happiness and spreads a contagious aura of optimism wherever it goes.The initial burst of Good Vibes Only Perfume is like a sunlit citrus explosion. The vibrant notes of juicy oranges and zesty lemons instantly uplift your mood, creating a feeling of pure bliss and energy. These invigorating citrus notes awaken your senses and set the stage for a refreshing olfactory journey.As the fragrance unfolds, a bouquet of blooming flowers takes center stage. The delicate petals of jasmine and lily of the valley embrace you with their sweet, floral embrace. The floral accords exude a sense of femininity and grace, evoking feelings of warmth and serenity.
                   </p>
                   <div
                     class="flex justify-around items-center mx-auto w-[260px] h-[46px] mt-2"
@@ -1353,11 +1356,8 @@
                   />
                   <p class="text-sm pt-3 pl-2 font-semibold">Article</p>
                   <p class="text-md pl-2 font-bold">Aromatics Anonymous</p>
-                  <p class="text-sm pt-1 pl-2">
-                    Aromatic microcapsule slowly releases a subtle fragrance,
-                    removing odor, relieving stress, and offering emotional
-                    stability and refreshing feel as the capsules are blown off
-                    by friction.
+                  <p class="text-sm pt-1 pl-2 line-clamp-5">
+                    We understand that fragrances are subjective. So break the seal, open the cap, and try the perfume. If you do not absolutely love it, we will generate a return pickup and replace it until you find your signature scent – or even issue a 100% refund. All the cost of pickup and delivery will be taken care of by us.Good Vibes Only Perfume is a delightful fragrance that encapsulates the essence of positivity, joy, and a carefree spirit. It is a scent that radiates happiness and spreads a contagious aura of optimism wherever it goes.The initial burst of Good Vibes Only Perfume is like a sunlit citrus explosion. The vibrant notes of juicy oranges and zesty lemons instantly uplift your mood, creating a feeling of pure bliss and energy. These invigorating citrus notes awaken your senses and set the stage for a refreshing olfactory journey.As the fragrance unfolds, a bouquet of blooming flowers takes center stage. The delicate petals of jasmine and lily of the valley embrace you with their sweet, floral embrace. The floral accords exude a sense of femininity and grace, evoking feelings of warmth and serenity. At its core, Good Vibes Only Perfume reveals a subtle hint of tropical fruits, adding a touch of exoticism and playfulness to the fragrance. The succulent notes of pineapple and mango transport you to a sun-kissed paradise, where worries melt away and a sense of carefree joy fills the air.The fragrance settles into a comforting base that wraps you in a warm embrace. Bella Vita Organic Gold Woman is a luxurious and captivating fragrance that embodies the essence of elegance, femininity, and empowerment. It is a scent designed to celebrate the radiance and beauty of the modern woman.
                   </p>
                   <div
                     class="flex justify-around items-center mx-auto w-[260px] h-[46px] mt-2"
@@ -1375,7 +1375,170 @@
       </div>
     </section>
 
+    <section class="max-w-7xl mx-auto mt-16 px-4">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold pl-3">Testimonials</h1>
+      <div class="max-w-7xl mx-auto px-2 relative mt-10">
+        <button
+          type="button"
+          class="testimonialsSwiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg bg-white shadow-md flex items-center justify-center text-black hover:bg-gray-100 transition-colors"
+          aria-label="Previous"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          class="testimonialsSwiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg bg-white shadow-md flex items-center justify-center text-black hover:bg-gray-100 transition-colors"
+          aria-label="Next"
+        >
+          →
+        </button>
+
+        <div class="swiper testimonialsSwiper px-12 py-6">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="flex justify-around gap-3 bg-white border-white rounded-lg p-3 mx-auto">
+                <img
+                  src="assets/images/imgi_29_testi2.png"
+                  alt=""
+                  class="w-20 h-20"
+                />
+                <div class="flex flex-col">
+                  <div class="flex justify-between">
+                    <p class="font-bold text-lg tracking-wide">Greate Products!!</p>
+                    <p>★★★★☆ 4.5/5</p>
+                  </div>
+                  <p class="text-sm">
+                    Sprays faciliate cooling system in industries
+                    <span class="block"
+                      >with high-temprature process,effectivly disappointing
+                      heat</span
+                    >
+                    through atomized droplets.
+                  </p>
+                  <p class="font-bold">Isable Hansan, SEO Manager</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="flex justify-around gap-3 bg-white border-white rounded-lg p-3 mx-auto">
+                <img
+                  src="assets/images/imgi_31_testi1.png"
+                  alt=""
+                  class="w-20 h-20"
+                />
+                <div class="flex flex-col">
+                  <div class="flex justify-between">
+                    <p class="font-bold text-lg tracking-wide">Greate Customer Support!!</p>
+                    <p>★★★★☆ 4.5/5</p>
+                  </div>
+                  <p class="text-sm">
+                    Agriculture benefits significantly from sprays,employing 
+                    <span class="block"
+                      >them for the controlled distribution of pesticides, fertilizer
+                      </span
+                    >
+                    and herbicides
+                  </p>
+                  <p class="font-bold">Ewan Sharper, Developer</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="flex justify-around gap-3 bg-white border-white rounded-lg p-3 mx-auto">
+                <img
+                  src="assets/images/imgi_31_testi1.png"
+                  alt=""
+                  class="w-20 h-20"
+                />
+                <div class="flex flex-col">
+                  <div class="flex justify-between">
+                    <p class="font-bold text-lg tracking-wide">Excellent!!</p>
+                    <p>★★★★☆ 4.5/5</p>
+                  </div>
+                  <p class="text-sm">
+                    Agriculture benefits significantly from sprays,employing 
+                    <span class="block"
+                      >them for the controlled distribution of pesticides, fertilizer
+                      </span
+                    >
+                    and herbicides
+                  </p>
+                  <p class="font-bold">Ewan Sharper, Developer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white py-16 mt-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+          <div class="col-span-1">
+            <h2 class="text-4xl font-bold mb-4">Sprays</h2>
+            <p class="text-sm leading-relaxed text-gray-300">
+              Precision sprayers ensure targeted application, minimizing environmental impact while maximizing crop yield and health. Furthermore, irrigation systems utilize sprays to distribute water efficiently.
+            </p>
+          </div>
+
+          <div class="col-span-1">
+            <h3 class="text-lg font-semibold mb-4">Navigation :</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Catalog</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-span-1">
+            <h3 class="text-lg font-semibold mb-4">About us:</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">About us</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Faqs</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">privacy policy</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Shipping & Policy</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+            </ul>
+          </div>
+
+          <div class="col-span-1">
+            <h3 class="text-lg font-semibold mb-4">Share:</h3>
+            <div class="flex gap-3">
+              <a href="https://www.instagram.com/" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <img src="./assets/images/instagram.png" alt="Instagram" class="w-5 h-5" />
+              </a>
+              <a href="https://www.shopify.com/in" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <img src="./assets/images/chat.png" alt="Spotify" class="w-5 h-5" />
+              </a>
+              <a href="https://x.com/" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <img src="./assets/images/twitter.png" alt="Youtube" class="w-5 h-5" />
+              </a>
+              <a href="https://www.youtube.com/" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <img src="./assets/images/youtube.png" alt="Twitter" class="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-sm text-gray-400 mb-4 md:mb-0">
+            © 2026, Sprays WorkDo, Powered by WorkDo.io
+          </p>
+          
+          <div class="flex gap-2">
+            <img src="./assets/images/download (17).svg" alt="Visa" class="h-6 bg-white rounded px-2" />
+            <img src="./assets/images/download (16).svg" alt="Mastercard" class="h-6 bg-white rounded px-2" />
+            <img src="./assets/images/download (15).svg" alt="American Express" class="h-6 rounded" />
+            <img src="./assets/images/download (14).svg" alt="PayPal" class="h-6 bg-white rounded px-2" />
+            <img src="./assets/images/download (13).svg" alt="Diners Club" class="h-6 bg-white rounded px-2" />
+            <img src="./assets/images/download (12).svg" alt="Discover" class="h-6 bg-white rounded px-2" />
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
